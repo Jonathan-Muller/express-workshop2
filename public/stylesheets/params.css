@@ -1,0 +1,10 @@
+body{
+    background-color: black;
+}
+#json {
+    background-color: black;
+    color: rgb(74, 255, 37);
+    /* color:rgb(250, 81, 109); */
+    padding:10px;
+    font-size:20px;
+}
