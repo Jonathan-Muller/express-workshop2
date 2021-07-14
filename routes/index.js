@@ -16,12 +16,12 @@ router.get('/params', function (req, res, next) {
 });
 
 router.get('/targil', function (req, res, next) {
-  res.render('targil', {});
+  res.render('targil', { catsToAdd: 1 });
 });
 
-router.post('/targil', function (req, res, next) {
-  cache.add(req.body);
-  res.render('targil', {});
+router.get('/targil-add', function (req, res, next) {
+  cache.add(req.query.cats);
+  res.redirect('targil');
 })
 
 router.get('/cache', function (req, res, next) {

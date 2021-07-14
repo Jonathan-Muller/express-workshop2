@@ -7,10 +7,42 @@
 </head>
 
 <body>
-  <form action="/targil" method="POST">
-    <%- include('form')%>
-    <input type="submit" value="submitation"/>
+  <form action="/targil-add" method="GET">
+    <div id="dumdum">
+      <input type="text" name="cats[0][name]" placeholder="cats name" />
+      <input type="text" name="cats[0][breed]" placeholder="cats breed" />
+    </div>
+    <input type="submit" value="submitation" />
   </form>
+  <button id="addorbutton" onclick="add()">add new cat</button>
 </body>
+<script>
+  let catsToAdd = 1;
+    function add(e) {
+      catsToAdd++;
+
+      const nameInput = document.createElement('input');
+      nameInput.name = `cats[${catsToAdd - 1}][name]`;
+      nameInput.placeholder = 'cats name';
+
+      const breedInput = document.createElement('input');
+      breedInput.placeholder = `cats breed`;
+      breedInput.name = `cats[${catsToAdd - 1}][breed]`;
+
+
+      const newCat = document.createElement('div');
+      newCat.appendChild(nameInput);
+      newCat.appendChild(breedInput);
+
+
+      const inputContainer = document.getElementById("dumdum");
+      inputContainer.appendChild(newCat);
+
+    }
+
+  const button = document.getElementById("addorbutton");
+  button.onclick = add;
+
+</script>
 
 </html>

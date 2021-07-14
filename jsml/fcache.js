@@ -3,8 +3,8 @@ class FCache{
         this._memory = [{name: 'bob', breed: "poodle"}];
     }
 
-    add(item){
-        this._memory.push(item);
+    add(items){
+        this._memory = this._memory.concat(items);
     }
 
     fetch(){
