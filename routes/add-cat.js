@@ -7,12 +7,14 @@ const { cache } = require("../jsml/fcache.js");
 /* GET cats listing. */
 router.get('/', function (req, res, next) {
     //after adding one cat successfully change render to add-many-cats
-    res.render('add-many-cats');
+    res.render('add-cat-page');
 });
 
-router.get('/add-one', function (req, res, next) {
+router.post('/add-one', function (req, res, next) {
     //use cache.addOne to add new cat
-    if (req.query) cache.addOne(req.query);
+    //add your code here:
+
+
     res.redirect('/filter');
 })
 
