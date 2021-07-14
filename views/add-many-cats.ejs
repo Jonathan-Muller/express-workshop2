@@ -6,15 +6,19 @@
   <link rel='stylesheet' href='/stylesheets/targil.css' />
 </head>
 
+<!--the form needs to be sent to "/add-cat-page/add-many".
+   the info sent in this format: 
+  [
+    {name: "cat name", breed: "cat breed"},
+    ...
+  ]
+-->
+
 <body>
-  <div></div>
-  <form action="/add-cat-page/add-many" method="GET">
+  <form>
     <div id="dumdum">
-      <input
-       type="text" 
-       name="cats[0][name]" 
-       placeholder="cats name" />
-      <input type="text" name="cats[0][breed]" placeholder="cats breed" />
+      <input type="text" placeholder="cats name" />
+      <input type="text" placeholder="cats breed" />
     </div>
     <input type="submit" value="submitation" />
   </form>
@@ -22,27 +26,31 @@
 </body>
 <script>
   let catsToAdd = 1;
-    function add(e) {
-      catsToAdd++;
+  function add(e) {
+    catsToAdd++;
 
-      const nameInput = document.createElement('input');
-      nameInput.name = `cats[${catsToAdd - 1}][name]`;
-      nameInput.placeholder = 'cats name';
+    const nameInput = document.createElement('input');
+    nameInput.placeholder = 'cats name';
 
-      const breedInput = document.createElement('input');
-      breedInput.placeholder = `cats breed`;
-      breedInput.name = `cats[${catsToAdd - 1}][breed]`;
+    //change name to fit format:
+    nameInput.name = ``;
+
+    const breedInput = document.createElement('input');
+    breedInput.placeholder = `cats breed`;
+
+    //change name to fit format:
+    breedInput.name = ``;
 
 
-      const newCat = document.createElement('div');
-      newCat.appendChild(nameInput);
-      newCat.appendChild(breedInput);
+    const newCat = document.createElement('div');
+    newCat.appendChild(nameInput);
+    newCat.appendChild(breedInput);
 
 
-      const inputContainer = document.getElementById("dumdum");
-      inputContainer.appendChild(newCat);
+    const inputContainer = document.getElementById("dumdum");
+    inputContainer.appendChild(newCat);
 
-    }
+  }
 
   const button = document.getElementById("addorbutton");
   button.onclick = add;

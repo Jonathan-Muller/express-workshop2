@@ -19,7 +19,10 @@ router.post('/add-one', function (req, res, next) {
 })
 
 router.get('/add-many', function (req, res, next) {
-    if (req.query.cats && req.query.cats.length) cache.addMany(req.query.cats);
+    //use cache.addMany to add new cats
+    //add your code here:
+
+    
     res.redirect('/filter');
 })
 
