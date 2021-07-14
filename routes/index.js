@@ -4,10 +4,12 @@ const { cache } = require("../jsml/fcache.js");
 
 function getOptions() {
   let allCats = cache.fetch()
+  console.log('allCats: ', allCats);
   let options = ['all']
   for (let i = 0; i < allCats.length; i++) {
     const cat = allCats[i];
     const found = options.find(item => item.breed === cat.breed)
+    console.log('found: ', found);
     if (!found) options.push(cat.breed)
   }
   return options
@@ -27,34 +29,19 @@ router.get('/params', function (req, res, next) {
 });
 
 router.get('/targil', function (req, res, next) {
-  res.render('targil', {});
+  res.render('targil', { catsToAdd: 1 });
 });
 
-// router.get('/filter', function (req, res, next) {
-//   let allCats = cache.fetch()
-//   if (req.query.breed !== 'all') {
-//     allCats = allCats.filter(item => item.breed === req.query.breed)
-//   }
-//   res.render('cats', {
-//     cats: allCats,
-//     options: getOptions(),
-//     breed: req.query.breed
-//   });
-
-// });
-
-router.post('/add-cat', function (req, res, next) {
-  cache.add(req.body);
-  res.render('targil', {});
+router.get('/add-cat', function (req, res, next) {
+  if (req.query.cats && req.query.cats.length) cache.add(req.query.cats);
+  res.redirect('filter');
 })
 
-router.get('/cache', function (req, res, next) {
+router.get('/filter', function (req, res, next) {
   let allCats = cache.fetch()
-  console.log('req.query.breed: ', req.query.breed);
   if (req.query.breed && req.query.breed !== 'all') {
     allCats = allCats.filter(item => item.breed === req.query.breed)
   }
-  console.log("req.query.breed || 'all: ", req.query.breed || 'all');
   res.render('cats', {
     cats: allCats,
     options: getOptions(),
