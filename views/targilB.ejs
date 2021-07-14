@@ -11,35 +11,57 @@
     <form action="/params" method="GET">
       <div>
         <h2>human</h2>
-        <label for="human[firstName]">first name:</label>
-        <input type="text" name="human[firstName]">
+        <label for="human">first name:</label>
+        <input type="text" name="human">
         
-        <label for="human[lastName]">last name:</label>
-        <input type="text" name="human[lastName]">
+        <label for="human">last name:</label>
+        <input type="text" name="human">
         
-        <label for="human[birthDate]">date of birth:</label>
-        <input type="date" name="human[birthDate]">
+        <label for="human[]">date of birth:</label>
+        <input type="date" name="human[]">
       </div>
       <div>
         <h2>cookie</h2>
-        <label for="cookie[firstName]">first name:</label>
-        <input type="text" name="cookie[firstName]">
+        <label for="cookie[0][]">first name:</label>
+        <input type="text" name="cookie[0][]">
         
-        <label for="cookie[lastName]">last name:</label>
-        <input type="text" name="cookie[lastName]">
+        <label for="cookie[1][lastName]">last name:</label>
+        <input type="text" name="cookie[1][lastName]">
         
-        <label for="cookie[bakingDate]">date of baking:</label>
-        <input type="date" name="cookie[bakingDate]">
+        <label for="cookie[]">date of baking:</label>
+        <input type="date" name="cookie[]">
       </div>
       <div>
         <h2>numbers</h2>
-        <input type="number" value="0" name="number[]">
-        <input type="number" value="0" name="number[]">
-        <input type="number" value="0" name="number[]">
-        <input type="number" value="0" name="number[]">
+        <input type="number" value="0" name="number[0][1][2][3]">
+        <input type="number" value="0" name="number[0][1][2]">
+        <input type="number" value="0" name="number[0][1]">
+        <input type="number" value="0" name="number[0]">
       </div>
       <br>
       <button>submit</button>
     </form>
+
+    <h4>how we want output to look</h4>
+    <pre>
+      {
+        "human": {
+            "firstName": "",
+            "lastName": "",
+            "birthDate": ""
+        },
+        "cookie": {
+            "firstName": "",
+            "lastName": "",
+            "bakingDate": ""
+        },
+        "number": [
+            "0",
+            "0",
+            "0",
+            "0"
+        ]
+    }
+    </pre>
   </body>
 </html>
