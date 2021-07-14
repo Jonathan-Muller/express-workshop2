@@ -5,15 +5,18 @@
   <title>test page</title>
   <link rel='stylesheet' href='/stylesheets/targil.css' />
 </head>
-
+<!--the form needs to be sent to "/filter".
+   the info sent in this format: 
+  {breed: "cats breed"}
+-->
 <body>
-  <form action="/filter" method="GET">
+  <form>
     <% cats.forEach(function(cat){ %>
       <%- cat.name -%>
       <br />
         <% }) %>
           <div>
-            <select name='breed'>
+            <select>
               <% for( opt of options){ %>
                 <option value="<%=opt %>" <%= opt===breed ? "selected" : "" %> >
                   <%= opt %>
