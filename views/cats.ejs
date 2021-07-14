@@ -7,9 +7,22 @@
 </head>
 
 <body>
-  <% cats.forEach(function(cat){ %>
+  <form action="/cache" method="GET">
+    <% cats.forEach(function(cat){ %>
       <%- cat.name -%>
- <% }) %>
+      <br />
+        <% }) %>
+          <div>
+            <select name='breed'>
+              <% for( opt of options){ %>
+                <option value="<%=opt %>" <%= opt===breed ? "selected" : "" %> >
+                  <%= opt %>
+                </option>
+                <% } %>
+            </select>
+          </div>
+          <input type="submit" value="submitation" />
+  </form>
 </body>
 
 </html>
