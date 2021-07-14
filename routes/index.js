@@ -8,7 +8,7 @@ function getOptions() {
     const found = prev.find(item => item === curr.breed)
     if (!found) prev.push(curr.breed);
     return prev;
-  }, [])
+  }, ["all"])
   return options
 }
 
@@ -31,7 +31,7 @@ router.get('/targil', function (req, res, next) {
 
 router.get('/add-cat', function (req, res, next) {
   if (req.query.cats && req.query.cats.length) cache.add(req.query.cats);
-  res.redirect('filter');
+  res.redirect('/filter');
 })
 
 router.get('/filter', function (req, res, next) {
