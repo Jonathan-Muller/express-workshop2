@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <form action="/params" method="GET">
+      <div>
+        <h2>human</h2>
+        <label for="human[firstName]">first name:</label>
+        <input type="text" name="human[firstName]">
+        
+        <label for="human[lastName]">last name:</label>
+        <input type="text" name="human[lastName]">
+        
+        <label for="human[birthDate]">date of birth:</label>
+        <input type="date" name="human[birthDate]">
+      </div>
+      <div>
+        <h2>cookie</h2>
+        <label for="cookie[firstName]">first name:</label>
+        <input type="text" name="cookie[firstName]">
+        
+        <label for="cookie[lastName]">last name:</label>
+        <input type="text" name="cookie[lastName]">
+        
+        <label for="cookie[bakingDate]">date of baking:</label>
+        <input type="date" name="cookie[bakingDate]">
+      </div>
+      <div>
+        <h2>numbers</h2>
+        <input type="number" value="0" name="number[]">
+        <input type="number" value="0" name="number[]">
+        <input type="number" value="0" name="number[]">
+        <input type="number" value="0" name="number[]">
+      </div>
+      <br>
+      <button>submit</button>
+    </form>
+  </body>
+</html>
