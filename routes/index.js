@@ -4,14 +4,11 @@ const { cache } = require("../jsml/fcache.js");
 
 function getOptions() {
   let allCats = cache.fetch()
-  console.log('allCats: ', allCats);
-  let options = ['all']
-  for (let i = 0; i < allCats.length; i++) {
-    const cat = allCats[i];
-    const found = options.find(item => item.breed === cat.breed)
-    console.log('found: ', found);
-    if (!found) options.push(cat.breed)
-  }
+  const options = allCats.reduce((prev, curr) => {
+    const found = prev.find(item => item === curr.breed)
+    if (!found) prev.push(curr.breed);
+    return prev;
+  }, [])
   return options
 }
 
