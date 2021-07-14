@@ -16,9 +16,11 @@ function getOptions() {
 /* GET cats listing. */
 router.get('/', function (req, res, next) {
   let allCats = cache.fetch()
-  if (req.query.breed && req.query.breed !== 'all') {
-    allCats = allCats.filter(item => item.breed === req.query.breed)
-  }
+  
+  //filter the cats according to the cat breed
+  //write your code here:
+
+
   res.render('cats', {
     cats: allCats,
     options: getOptions(),
