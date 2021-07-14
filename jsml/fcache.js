@@ -1,6 +1,6 @@
 class FCache{
     constructor(){
-        this._memory = [{name: 'bob', breed: "poodle"}, {name: "aa", breed: "ww"}];
+        this._memory = [{name: 'bob', breed: "poodle"}, {name: "joe", breed: "labrador"}];
     }
 
     add(items){
